@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Dixels Media Inc.</title>
+  <meta
+    name="description"
+    content="Explore websites, digital platforms, ecommerce brands, and social media projects created by Dixels Media Inc."
+  />
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <style>
+    :root {
+      --bg: #081120;
+      --bg-2: #0d1b2f;
+      --panel: #0f2138;
+      --surface: #ffffff;
+      --surface-soft: #f5f8fc;
+      --text: #0f172a;
+      --text-soft: #5b6b82;
+      --text-invert: #f8fbff;
+      --text-invert-soft: rgba(248, 251, 255, 0.78);
+      --line: rgba(15, 23, 42, 0.08);
+      --line-dark: rgba(255, 255, 255, 0.1);
+      --accent: #3b82f6;
+      --accent-2: #60a5fa;
+      --shadow: 0 18px 50px rgba(8, 17, 32, 0.12);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --max-width: 1200px;
+      --card-gap: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--surface);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 17, 32, 0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line-dark);
+    }
+
+    .nav-wrap {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-invert);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .brand-logo {
+      height: 42px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--text-invert-soft);
+      font-size: 0.98rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-invert);
+    }
+
+    .nav-cta,
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.25s ease;
+      border: none;
+    }
+
+    .nav-cta,
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      box-shadow: 0 14px 30px rgba(59, 130, 246, 0.24);
+    }
+
+    .nav-cta:hover,
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--text-invert);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(96, 165, 250, 0.18), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.12), transparent 32%),
+        linear-gradient(135deg, #081120 0%, #0d1b2f 50%, #112540 100%);
+      color: var(--text-invert);
+      padding: 96px 0 88px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #cfe3ff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.8rem, 5.4vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      margin: 0 0 28px;
+      max-width: 700px;
+      color: var(--text-invert-soft);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .showcase-panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      padding: 24px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .showcase-panel h3 {
+      margin: 0 0 18px;
+      font-size: 1.2rem;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .mini-card {
+      min-height: 120px;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .mini-card span {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: #9cc4ff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .mini-card h4 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .mini-card p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--text-invert-soft);
+    }
+
+    .section {
+      padding: 84px 0;
+    }
+
+    .section-head {
+      margin-bottom: 28px;
+    }
+
+    .section-head .eyebrow {
+      background: #eef5ff;
+      color: #2a6cdf;
+      border: 1px solid #d9e8ff;
+      margin-bottom: 16px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 760px;
+      color: var(--text-soft);
+      font-size: 1.04rem;
+    }
+
+    .intro-strip {
+      background: var(--surface-soft);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .intro-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid #dbe7f6;
+      color: #305173;
+      font-size: 0.92rem;
+      font-weight: 700;
+      min-height: 54px;
+      transition: 0.2s ease;
+    }
+
+    a.chip:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(8, 17, 32, 0.08);
+    }
+
+    .projects-wrap {
+      display: grid;
+      gap: 30px;
+    }
+
+    .category {
+      display: grid;
+      gap: 20px;
+    }
+
+    .category-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .category-title h3 {
+      margin: 0;
+      font-size: clamp(1.55rem, 3vw, 2.1rem);
+      letter-spacing: -0.02em;
+    }
+
+    .category-title p {
+      margin: 0;
+      max-width: 680px;
+      color: var(--text-soft);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--card-gap);
+    }
+
+    .project-card,
+    .project-link {
+      display: block;
+      position: relative;
+      background: white;
+      border: 1px solid #e7eef7;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      height: 100%;
+    }
+
+    .project-link:hover,
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 26px 60px rgba(8, 17, 32, 0.14);
+    }
+
+    .project-top {
+      padding: 26px 26px 18px;
+      background: linear-gradient(180deg, #f9fbff 0%, #ffffff 100%);
+    }
+
+    .project-type {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eef5ff;
+      color: #2d66cc;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .project-card h4,
+    .project-link h4 {
+      margin: 0 0 10px;
+      font-size: 1.35rem;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    .project-card p,
+    .project-link p {
+      margin: 0;
+      color: var(--text-soft);
+    }
+
+    .project-body {
+      padding: 0 26px 26px;
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .meta-box {
+      padding: 14px;
+      border-radius: 16px;
+      background: #f8fbff;
+      border: 1px solid #e4edf8;
+    }
+
+    .meta-box span {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: #6482a8;
+      margin-bottom: 6px;
+    }
+
+    .meta-box strong {
+      font-size: 0.98rem;
+      line-height: 1.4;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: #f2f6fb;
+      color: #39526f;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .status-note {
+      display: inline-flex;
+      margin-top: 18px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #fff7e8;
+      border: 1px solid #f2dfb2;
+      color: #8a6512;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .featured-band {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    }
+
+    .slider-wrap {
+      position: relative;
+    }
+
+    .slider-controls {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .slider-btn {
+      width: 46px;
+      height: 46px;
+      border: 1px solid #dbe7f6;
+      background: #ffffff;
+      color: #0f172a;
+      border-radius: 999px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(8, 17, 32, 0.08);
+      transition: 0.2s ease;
+    }
+
+    .slider-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(8, 17, 32, 0.12);
+    }
+
+    .slider-track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: calc((100% - var(--card-gap)) / 2);
+      gap: var(--card-gap);
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+      scroll-snap-type: x mandatory;
+    }
+
+    .slider-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slider-track .project-link,
+    .slider-track .project-card {
+      scroll-snap-align: start;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #081120 0%, #0f1f35 100%);
+      color: var(--text-invert);
+    }
+
+    .cta-box {
+      border-radius: 32px;
+      padding: 42px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
+      border: 1px solid rgba(255,255,255,0.1);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .cta-box h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .cta-box p {
+      margin: 0;
+      color: var(--text-invert-soft);
+      max-width: 740px;
+    }
+
+    .site-footer {
+      background: #081120;
+      color: var(--text-invert-soft);
+      border-top: 1px solid var(--line-dark);
+      padding: 28px 0;
+    }
+
+    .footer-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-invert);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .intro-box,
+      .cta-box,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 84px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .intro-box {
+        grid-template-columns: 1fr;
+      }
+
+      .chip-row {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site-header {
+        position: static;
+      }
+
+      .nav-wrap {
+        min-height: 74px;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .mini-grid,
+      .meta-row {
+        grid-template-columns: 1fr;
+      }
+
+      .project-top,
+      .project-body,
+      .cta-box {
+        padding: 22px;
+      }
+
+      .category-title {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .brand-logo {
+        height: 36px;
+      }
+
+      .slider-track {
+        grid-auto-columns: 88%;
+      }
+
+      .slider-controls {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <img src="dixels-logo-white.png" alt="Dixels Media Inc." class="brand-logo" />
+        <span>Dixels Media Inc.</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="profile.html" aria-current="page">Portfolio</a>
+        <a href="index.html#mission">About</a>
+        <a href="index.html#socials">Contact</a>
+      </nav>
+
+      <a class="nav-cta" href="index.html#socials">Start a Project</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Dixels Media Inc. Portfolio</span>
+          <h1>See how we help brands look more professional online.</h1>
+          <p>
+            Explore selected websites, digital platforms, ecommerce builds, and social media brand assets created to help businesses build trust, stand out, and grow.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#featured-projects">View Featured Work</a>
+            <a class="btn btn-secondary" href="#all-projects">Browse Full Portfolio</a>
+          </div>
+        </div>
+
+        <div class="showcase-panel">
+          <h3>What future clients can explore here</h3>
+          <div class="mini-grid">
+            <div class="mini-card">
+              <span>Web Design</span>
+              <h4>Business websites built to inspire trust</h4>
+              <p>Modern websites designed to present your business clearly and make a stronger first impression.</p>
+            </div>
+            <div class="mini-card">
+              <span>Platforms</span>
+              <h4>Digital products with real structure</h4>
+              <p>Platform-style projects that show strategy, usability, and a more advanced digital build process.</p>
+            </div>
+            <div class="mini-card">
+              <span>Ecommerce</span>
+              <h4>Online stores with stronger branding</h4>
+              <p>Shops and supporting brand pages created to improve presentation, consistency, and confidence.</p>
+            </div>
+            <div class="mini-card">
+              <span>Social Presence</span>
+              <h4>Facebook pages that support visibility</h4>
+              <p>Brand pages used to strengthen awareness, audience engagement, and day-to-day online presence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro-strip">
+      <div class="container intro-box">
+        <div class="section-head" style="margin-bottom: 0;">
+          <span class="eyebrow">Easy to explore</span>
+          <h2>Browse the type of work that matters most to your business.</h2>
+          <p>
+            Jump straight to featured projects, websites, ecommerce work, or Facebook brand pages to quickly see the style and quality of work we create.
+          </p>
+        </div>
+
+        <div class="chip-row" aria-label="Portfolio categories">
+          <a class="chip" href="#featured-projects">Featured Projects</a>
+          <a class="chip" href="#websites-platforms">Websites &amp; Platforms</a>
+          <a class="chip" href="#ecommerce-brand">Ecommerce &amp; Brand</a>
+          <a class="chip" href="#facebook-presence">Facebook Pages</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section featured-band" id="featured-projects">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Featured work</span>
+          <h2>Highlighted projects</h2>
+          <p>
+            A quick look at a few standout projects that show the range of work Dixels Media Inc. can create for growing brands and businesses.
+          </p>
+        </div>
+
+        <div class="slider-wrap">
+          <div class="slider-controls">
+            <button class="slider-btn" type="button" data-slider-prev="featured-slider" aria-label="Previous featured projects">&#8592;</button>
+            <button class="slider-btn" type="button" data-slider-next="featured-slider" aria-label="Next featured projects">&#8594;</button>
+          </div>
+
+          <div class="slider-track" id="featured-slider">
+            <a class="project-link" href="https://dixelsmedia.com/" target="_blank" rel="noopener noreferrer">
+              <div class="project-top">
+                <span class="project-type">Agency Website</span>
+                <h4>Dixels Media Website</h4>
+                <p>The main website for Dixels Media Inc., built to present the brand, its services, and its direction with clarity.</p>
+              </div>
+              <div class="project-body">
+                <div class="meta-row">
+                  <div class="meta-box">
+                    <span>Project focus</span>
+                    <strong>Brand presence and service positioning</strong>
+                  </div>
+                  <div class="meta-box">
+                    <span>Category</span>
+                    <strong>Website</strong>
+                  </div>
+                </div>
+                <div class="tags">
+                  <span class="tag">Agency</span>
+                  <span class="tag">Website Design</span>
+                  <span class="tag">Brand Presence</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="project-link" href="https://steplinx.ca/" target="_blank" rel="noopener noreferrer">
+              <div class="project-top">
+                <span class="project-type">Digital Platform</span>
+                <h4>Steplinx</h4>
+                <p>A career-focused platform designed to help users improve resumes and move closer to real job opportunities.</p>
+              </div>
+              <div class="project-body">
+                <div class="meta-row">
+                  <div class="meta-box">
+                    <span>Project focus</span>
+                    <strong>Resume support and job matching</strong>
+                  </div>
+                  <div class="meta-box">
+                    <span>Category</span>
+                    <strong>Platform</strong>
+                  </div>
+                </div>
+                <div class="tags">
+                  <span class="tag">SaaS</span>
+                  <span class="tag">Product Strategy</span>
+                  <span class="tag">UX</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="project-link" href="https://shopfelyn.ca/?fbclid=IwY2xjawRL2qNleHRuA2FlbQIxMABicmlkETFLWUVOeFpyYmVqb0d5NXpvc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhWyN53dblhgX9ZAkCUU0u1W5_Hhhz_nNjzHslq6mW_k77a_Bjj1KkYB2b3v_aem_1pAtql5aPu2dhCmbCe_Hug" target="_blank" rel="noopener noreferrer">
+              <div class="project-top">
+                <span class="project-type">Ecommerce Store</span>
+                <h4>FELYN Online Shop</h4>
+                <p>An ecommerce storefront built around a cleaner premium look for a product-based cat brand.</p>
+              </div>
+              <div class="project-body">
+                <div class="meta-row">
+                  <div class="meta-box">
+                    <span>Project focus</span>
+                    <strong>Storefront presentation and branding</strong>
+                  </div>
+                  <div class="meta-box">
+                    <span>Category</span>
+                    <strong>Ecommerce</strong>
+                  </div>
+                </div>
+                <div class="tags">
+                  <span class="tag">Shopify</span>
+                  <span class="tag">Branding</span>
+                  <span class="tag">Ecommerce</span>
+                </div>
+              </div>
+            </a>
+
+            <article class="project-card">
+              <div class="project-top">
+                <span class="project-type">Travel Website</span>
+                <h4>TrueNorth Discoveries Website</h4>
+                <p>A travel website project included as a portfolio piece. You can add the live website link here later.</p>
+              </div>
+              <div class="project-body">
+                <div class="meta-row">
+                  <div class="meta-box">
+                    <span>Project focus</span>
+                    <strong>Travel brand presence and presentation</strong>
+                  </div>
+                  <div class="meta-box">
+                    <span>Category</span>
+                    <strong>Website</strong>
+                  </div>
+                </div>
+                <div class="tags">
+                  <span class="tag">Travel</span>
+                  <span class="tag">Website Design</span>
+                  <span class="tag">Portfolio Placeholder</span>
+                </div>
+                <div class="status-note">Add website link later</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="all-projects">
+      <div class="container projects-wrap">
+
+        <section class="category" aria-labelledby="websites-platforms">
+          <div class="category-title">
+            <div>
+              <h3 id="websites-platforms">Websites &amp; Platforms</h3>
+            </div>
+            <p>Website and platform projects that show how we help businesses build a stronger digital presence.</p>
+          </div>
+
+          <div class="slider-wrap">
+            <div class="slider-controls">
+              <button class="slider-btn" type="button" data-slider-prev="websites-slider" aria-label="Previous websites and platforms">&#8592;</button>
+              <button class="slider-btn" type="button" data-slider-next="websites-slider" aria-label="Next websites and platforms">&#8594;</button>
+            </div>
+
+            <div class="slider-track" id="websites-slider">
+              <a class="project-link" href="https://dixelsmedia.com/" target="_blank" rel="noopener noreferrer">
+                <div class="project-top">
+                  <span class="project-type">Agency Website</span>
+                  <h4>Dixels Media Website</h4>
+                  <p>The official website for Dixels Media Inc., showing the company’s services, positioning, and online presence.</p>
+                </div>
+                <div class="project-body">
+                  <div class="meta-row">
+                    <div class="meta-box">
+                      <span>Type</span>
+                      <strong>Business website</strong>
+                    </div>
+                    <div class="meta-box">
+                      <span>Built for</span>
+                      <strong>Credibility and service visibility</strong>
+                    </div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Business Website</span>
+                    <span class="tag">Agency</span>
+                    <span class="tag">Professional Presence</span>
+                  </div>
+                </div>
+              </a>
+
+              <a class="project-link" href="https://steplinx.ca/" target="_blank" rel="noopener noreferrer">
+                <div class="project-top">
+                  <span class="project-type">Digital Platform</span>
+                  <h4>Steplinx</h4>
+                  <p>A digital platform focused on resume optimization, career improvement, and opportunity-driven support.</p>
+                </div>
+                <div class="project-body">
+                  <div class="meta-row">
+                    <div class="meta-box">
+                      <span>Type</span>
+                      <strong>Web platform</strong>
+                    </div>
+                    <div class="meta-box">
+                      <span>Built for</span>
+                      <strong>User guidance and career support</strong>
+                    </div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Platform</span>
+                    <span class="tag">Career Tech</span>
+                    <span class="tag">UX</span>
+                  </div>
+                </div>
+              </a>
+
+              <article class="project-card">
+                <div class="project-top">
+                  <span class="project-type">Travel Website</span>
+                  <h4>TrueNorth Discoveries Website</h4>
+                  <p>A travel brand website project that remains visible in the portfolio while you prepare the live link.</p>
+                </div>
+                <div class="project-body">
+                  <div class="meta-row">
+                    <div class="meta-box">
+                      <span>Type</span>
+                      <strong>Business website</strong>
+                    </div>
+                    <div class="meta-box">
+                      <span>Built for</span>
+                      <strong>Destination visibility and brand trust</strong>
+                    </div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Travel</span>
+                    <span class="tag">Tourism</span>
+                    <span class="tag">Coming Soon</span>
+                  </div>
+                  <div class="status-note">Replace this card with your live website link later</div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="category" aria-labelledby="ecommerce-brand">
+          <div class="category-title">
+            <div>
+              <h3 id="ecommerce-brand">Ecommerce &amp; Brand</h3>
+            </div>
+            <p>Online shop and supporting brand channels designed to improve product presentation and overall brand consistency.</p>
+          </div>
+
+          <div class="projects-grid">
+            <a class="project-link" href="https://shopfelyn.ca/?fbclid=IwY2xjawRL2qNleHRuA2FlbQIxMABicmlkETFLWUVOeFpyYmVqb0d5NXpvc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhWyN53dblhgX9ZAkCUU0u1W5_Hhhz_nNjzHslq6mW_k77a_Bjj1KkYB2b3v_aem_1pAtql5aPu2dhCmbCe_Hug" target="_blank" rel="noopener noreferrer">
+              <div class="project-top">
+                <span class="project-type">Online Store</span>
+                <h4>FELYN Online Shop</h4>
+                <p>A product-based store created to support a premium cat brand with a cleaner and more polished customer-facing experience.</p>
+              </div>
+              <div class="project-body">
+                <div class="meta-row">
+                  <div class="meta-box">
+                    <span>Type</span>
+                    <strong>Ecommerce storefront</strong>
+                  </div>
+                  <div class="meta-box">
+                    <span>Built for</span>
+                    <strong>Product presentation and conversion</strong>
+                  </div>
+                </div>
+                <div class="tags">
+                  <span class="tag">Shop</span>
+                  <span class="tag">Branding</span>
+                  <span class="tag">Consumer Experience</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="project-link" href="https://www.facebook.com/felynofficial" target="_blank" rel="noopener noreferrer">
+              <div class="project-top">
+                <span class="project-type">Brand Facebook Page</span>
+                <h4>FELYN Facebook Page</h4>
+                <p>A supporting Facebook presence for the FELYN brand, helping reinforce audience trust and product visibility.</p>
+              </div>
+              <div class="project-body">
+                <div class="meta-row">
+                  <div class="meta-box">
+                    <span>Type</span>
+                    <strong>Social brand presence</strong>
+                  </div>
+                  <div class="meta-box">
+                    <span>Built for</span>
+                    <strong>Awareness and brand support</strong>
+                  </div>
+                </div>
+                <div class="tags">
+                  <span class="tag">Facebook</span>
+                  <span class="tag">Brand Support</span>
+                  <span class="tag">Audience Building</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section class="category" aria-labelledby="facebook-presence">
+          <div class="category-title">
+            <div>
+              <h3 id="facebook-presence">Facebook Pages</h3>
+            </div>
+            <p>Facebook brand pages that support visibility, audience engagement, and a more complete online presence.</p>
+          </div>
+
+          <div class="slider-wrap">
+            <div class="slider-controls">
+              <button class="slider-btn" type="button" data-slider-prev="facebook-slider" aria-label="Previous Facebook pages">&#8592;</button>
+              <button class="slider-btn" type="button" data-slider-next="facebook-slider" aria-label="Next Facebook pages">&#8594;</button>
+            </div>
+
+            <div class="slider-track" id="facebook-slider">
+              <a class="project-link" href="https://www.facebook.com/profile.php?id=100092414868311" target="_blank" rel="noopener noreferrer">
+                <div class="project-top">
+                  <span class="project-type">Facebook Page</span>
+                  <h4>Dixels Media Facebook</h4>
+                  <p>A Facebook presence for Dixels Media used to support visibility, trust, and ongoing audience engagement.</p>
+                </div>
+                <div class="project-body">
+                  <div class="meta-row">
+                    <div class="meta-box">
+                      <span>Channel</span>
+                      <strong>Facebook</strong>
+                    </div>
+                    <div class="meta-box">
+                      <span>Purpose</span>
+                      <strong>Brand awareness and business visibility</strong>
+                    </div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Agency Brand</span>
+                    <span class="tag">Facebook</span>
+                    <span class="tag">Audience Growth</span>
+                  </div>
+                </div>
+              </a>
+
+              <a class="project-link" href="https://www.facebook.com/felynofficial" target="_blank" rel="noopener noreferrer">
+                <div class="project-top">
+                  <span class="project-type">Facebook Page</span>
+                  <h4>FELYN Facebook</h4>
+                  <p>A brand page used to support product awareness, visual identity, and social proof for FELYN.</p>
+                </div>
+                <div class="project-body">
+                  <div class="meta-row">
+                    <div class="meta-box">
+                      <span>Channel</span>
+                      <strong>Facebook</strong>
+                    </div>
+                    <div class="meta-box">
+                      <span>Purpose</span>
+                      <strong>Brand awareness and audience growth</strong>
+                    </div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Product Brand</span>
+                    <span class="tag">Facebook Growth</span>
+                    <span class="tag">Visual Brand</span>
+                  </div>
+                </div>
+              </a>
+
+              <a class="project-link" href="https://www.facebook.com/profile.php?id=61555049624530" target="_blank" rel="noopener noreferrer">
+                <div class="project-top">
+                  <span class="project-type">Facebook Page</span>
+                  <h4>TrueNorth Discoveries Facebook</h4>
+                  <p>A Facebook presence for TrueNorth Discoveries, helping support travel visibility, destination storytelling, and brand trust.</p>
+                </div>
+                <div class="project-body">
+                  <div class="meta-row">
+                    <div class="meta-box">
+                      <span>Channel</span>
+                      <strong>Facebook</strong>
+                    </div>
+                    <div class="meta-box">
+                      <span>Purpose</span>
+                      <strong>Travel brand visibility and audience engagement</strong>
+                    </div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Travel Brand</span>
+                    <span class="tag">Facebook</span>
+                    <span class="tag">Destination Content</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2>Want your business to look stronger online?</h2>
+            <p>
+              Dixels Media Inc. creates websites, ecommerce experiences, and digital brand assets designed to help businesses present themselves better and grow with confidence.
+            </p>
+          </div>
+          <div>
+            <a class="btn btn-primary" href="index.html#socials">Start Your Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div>© 2026 Dixels Media Inc. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="profile.html">Portfolio</a>
+        <a href="index.html#socials">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll("[data-slider-prev], [data-slider-next]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const sliderId = button.getAttribute("data-slider-prev") || button.getAttribute("data-slider-next");
+        const slider = document.getElementById(sliderId);
+        if (!slider) return;
+
+        const card = slider.querySelector(".project-link, .project-card");
+        const styles = window.getComputedStyle(slider);
+        const gap = parseInt(styles.columnGap || styles.gap || 22, 10);
+        const cardWidth = card ? card.getBoundingClientRect().width : 350;
+        const direction = button.hasAttribute("data-slider-next") ? 1 : -1;
+        const scrollAmount = (cardWidth * 2) + gap;
+
+        slider.scrollBy({
+          left: scrollAmount * direction,
+          behavior: "smooth"
+        });
+      });
+    });
+  </script>
+</body>
+</html>
